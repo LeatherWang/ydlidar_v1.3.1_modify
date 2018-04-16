@@ -33,46 +33,91 @@ rosrun ydlidar ydlidar_client
 You should see YDLIDAR's scan result in the console
 
 
-
-
-
-雷达驱动升级日志
+Parameters
 =====================================================================
-2017-11-30 version:1.1.2
+port (string, default: /dev/ydlidar)
 
-新增
+    serial port name used in your system. 
 
-   1.增加对现有所有EAI雷达支持
+baudrate (int, default: 115200)
 
-   2.增加Linux下非标准波特率的支持
+    serial port baud rate. 
 
-   3.增加串口异常检测
+frame_id (string, default: laser_frame)
 
-改进
+    frame ID for the device. 
 
-   1.修复雷达数据不稳定
+low_exposure (low_exposure, default: false)
 
-   2.修复雷达没有数据
+    indicated whether the LIDAR has low light power mode. 
 
-2017-12-16 version:1.2.0
+angle_fixed (bool, default: true)
 
-   1.SDK统一平台
+    indicated whether the driver needs do angle compensation. 
 
-2018-04-4 version:1.3.1
+heartbeat (bool, default: false)
 
-   1.更新SDK版本到1.3.1
+    indicated whether the LIDAR IS powered off. 
 
-   2.添加采样率、扫描频率设置
+resolution_fixed (bool, default: true)
 
-   3.修改配置，统一YDLIDAR雷达ROS坐标系
+    indicated whether the LIDAR has a fixed angular resolution. 
 
-   4.修复X4,S4雷达打不开现象
+angle_min (double, default: -180)
 
-   5.增加G4 G4C F4Pro 掉电保护功能
+    Min valid angle (°) for LIDAR data. 
 
-   6.增加S4B低光功率设置
+angle_max (double, default: 180)
 
-   7.修复关闭ROS节点等待时间长
+    Max valid angle (°) for LIDAR data. 
+
+range_min (double, default: 0.08)
+
+    Min valid range (m) for LIDAR data. 
+
+range_max (double, default: 16.0)
+
+    Max valid range (m) for LIDAR data. 
+
+ignore_array (string, default: "")
+
+    Set the current angle range value to zero. 
+
+samp_rate (int, default: 4)
+
+    the LIDAR sampling frequency.
+
+frequency (double, default: 7)
+
+    the LIDAR scanning frequency.
+
+
+
+
+Upgrade Log
+=====================================================================
+2018-04-16 version:1.3.1
+
+   1.Update SDK verison to 1.3.1
+
+   2.Increase sampling frequency,scan frequency setting.
+
+   3.Unified coordinate system.
+
+   4.Repair X4,S4 LIDAR cannot be opened.
+
+   5.Increased G4 G4C F4Pro LIDAR power-off protection.
+
+   6.Increased S4B LIDAR low optical power setting.
+
+   7.Fix the wait time for closing ros node.
    
-   8.补偿每个激光点时间戳
+   8.Compensate for each laser point timestamp.
+
+   9.Unified profile, automatic correction lidar model.
+
+
+
+
+
 
