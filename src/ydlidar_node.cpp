@@ -68,6 +68,8 @@ void publish_scan(ros::Publisher *pub,  node_info *nodes,  size_t node_count, ro
 	            }
 	        }
 
+            pos = node_count - 1 - pos;
+            
 	        scan_msg.ranges[pos] =  range;
 	        scan_msg.intensities[pos] = intensity;
 	    }
